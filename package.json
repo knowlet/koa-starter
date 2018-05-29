@@ -1,0 +1,69 @@
+{
+  "name": "koa-starter",
+  "version": "0.0.1",
+  "description": "A simple starter with koa2 and more.",
+  "main": "app.js",
+  "scripts": {
+    "start": "pm2 start process.yml --env production --name app -i MAX",
+    "logs": "pm2 logs app",
+    "stop": "pm2 delete app",
+    "dev": "NODE_ENV=development node devServer.js",
+    "dev-pm2": "pm2 start process.yml --env development --name app -i 0",
+    "test": "standard --fix && NODE_ENV=test mocha -b --delay --no-warnings"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/knowlet/koa-starter.git"
+  },
+  "keywords": [
+    "koa",
+    "http2",
+    "starter"
+  ],
+  "author": "knowlet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knowlet/koa-starter/issues"
+  },
+  "homepage": "https://github.com/knowlet/koa-starter#readme",
+  "devDependencies": {
+    "chokidar": "^2.0.3",
+    "mocha": "^5.1.1",
+    "sequelize-cli": "^4.0.0",
+    "standard": "^11.0.1",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "koa": "^2.5.1",
+    "koa-better-router": "^2.1.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-helmet": "^4.0.0",
+    "koa-session": "^5.8.1",
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.4",
+    "mysql2": "^1.5.3",
+    "pm2": "^2.10.4",
+    "require-all": "^2.2.0",
+    "sequelize": "^4.37.7",
+    "uuid": "^3.2.1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect",
+      "requireController",
+      "run"
+    ],
+    "ignore": [
+      "/public/",
+      "/views/"
+    ]
+  }
+}

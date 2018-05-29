@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+  <div id="app">
+    <el-row type="flex" :gutter="20" justify="center">
+      <el-col :span="6">
+        <el-card class="box-card">
+          <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="ruleForm" method="POST" @keyup.enter.native="submitForm('ruleForm')">
+            <el-form-item label="Email" prop="email">
+              <el-input name="email" type="email" v-model="ruleForm.email"></el-input>
+            </el-form-item>
+            <el-form-item label="Password" prop="pass">
+              <el-input name="password" type="password" v-model="ruleForm.pass" auto-complete="off"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="submitForm('ruleForm')">Submit</el-button>
+              <el-button @click="resetForm('ruleForm')">Reset</el-button>
+            </el-form-item>
+          </el-form>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        var checkEmail = (rule, value, callback) => {
+          if (!value) {
+            return callback(new Error('Please input email'));
+          }
+          var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          setTimeout(() => {
+            if (emailRegex.test(value)) {
+              callback(new Error('Please input valid email'));
+            } else {
+              callback();
+            }
+          }, 1000);
+        };
+        var validatePass = (rule, value, callback) => {
+          if (value === '') {
+            callback(new Error('Please input the password'));
+          } else {
+            callback();
+          }
+        };
+        return {
+          ruleForm: {
+            email: '',
+            pass: ''
+          },
+          rules: {
+            email: [
+              { validator: checkEmail, trigger: 'blur' }
+            ],
+            pass: [
+              { validator: validatePass, trigger: 'blur' }
+            ]
+          }
+        };
+      },
+      methods: {
+        submitForm(formName) {
+          this.$refs[formName].validate((valid) => {
+            if (valid) {
+              // alert('submit!');
+              this.$refs[formName].$el.submit();
+            } else {
+              console.log('error submit!!');
+              return false;
+            }
+          });
+        },
+        resetForm(formName) {
+          this.$refs[formName].resetFields();
+        }
+      }
+    });
+    <% if (locals.err) { %> app.__vue__.$message.error('Oops, <%= err %>'); <% } %>
+  </script>
+</body>
+</html>
