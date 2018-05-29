@@ -8,7 +8,7 @@ module.exports = {
   },
   post: async (ctx, next) => {
     try {
-      const username = ctx.request.body.email
+      const username = ctx.request.body.username
       const password = ctx.request.body.password
       if (!username || !password) {
         throw new Error('Username or Password is empty!')
