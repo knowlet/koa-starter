@@ -7,3 +7,4 @@ addons:
 before_install:
   - mysql -e 'CREATE DATABASE database_test;'
   - cp config.sample.js config.js
+  - cp src/models/config.sample.json src/models/config.json
