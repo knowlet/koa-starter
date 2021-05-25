@@ -35,5 +35,5 @@ jobs:
         cp config.sample.js config.js
         cp src/models/config.sample.json src/models/config.json
     - name: Create Databases
-      run: node_modules/.bin/sequelize db:create --config src/models/config.json
+      run: NODE_ENV=test node_modules/.bin/sequelize db:create --config src/models/config.json
     - run: npm test
