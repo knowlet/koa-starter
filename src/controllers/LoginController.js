@@ -1,4 +1,4 @@
-const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 const { User } = require('../models/index')
 
 module.exports = {
@@ -14,9 +14,8 @@ module.exports = {
         throw new Error('Username or Password is empty!')
       }
       const user = await User.findOne({ where: { user: username } })
-      const pass = crypto.createHash('sha256').update(password, 'utf8').digest('hex')
 
-      if (user !== null && user.pass === pass) {
+      if (user !== null && bcrypt.compareSync(password, user.pass)) {
         ctx.session.user = user
         ctx.session.save()
         ctx.redirect('/dashboard')
