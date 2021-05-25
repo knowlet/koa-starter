@@ -1,5 +1,6 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://travis-ci.org/knowlet/koa-starter.svg?branch=develop)](https://travis-ci.org/knowlet/koa-starter)
+[![CodeQL](https://github.com/knowlet/koa-starter/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/knowlet/koa-starter/actions/workflows/codeql-analysis.yml)
 
 # koa-starter
 
