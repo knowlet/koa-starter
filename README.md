@@ -8,31 +8,30 @@ A sample and http2 ready koa2 starter template.
 ## Requirement
 
 - node: 7.6 or higher
-- yarn
 
 ## Development
 
 The devServer mode will create controller when you add routing file in `routes` folder.
 
 ```sh
-yarn dev
+npm run dev
 ```
 or use the pm2 watch mode (but won't create controller automatically).
 
 ```sh
-yarn dev-pm2
+npm run dev-pm2
 ```
 
 ## Testing
 
 ```sh
-yarn test
+npm test
 ```
 
 ## Production
 
 ```sh
-yarn start
+npm start
 ```
 
 ## DB Migration
