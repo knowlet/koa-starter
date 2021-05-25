@@ -1,4 +1,5 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 [![Build Status](https://travis-ci.org/knowlet/koa-starter.svg?branch=develop)](https://travis-ci.org/knowlet/koa-starter)
 [![CodeQL](https://github.com/knowlet/koa-starter/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/knowlet/koa-starter/actions/workflows/codeql-analysis.yml)
 
@@ -9,31 +10,30 @@ A sample and http2 ready koa2 starter template.
 ## Requirement
 
 - node: 7.6 or higher
-- yarn
 
 ## Development
 
 The devServer mode will create controller when you add routing file in `routes` folder.
 
 ```sh
-yarn dev
+npm run dev
 ```
 or use the pm2 watch mode (but won't create controller automatically).
 
 ```sh
-yarn dev-pm2
+npm run dev-pm2
 ```
 
 ## Testing
 
 ```sh
-yarn test
+npm test
 ```
 
 ## Production
 
 ```sh
-yarn start
+npm start
 ```
 
 ## DB Migration
