@@ -1,4 +1,4 @@
-const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 const { DEFAULT_PASS } = require('../../config')
 
 module.exports = (sequelize, DataTypes) => {
@@ -13,10 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.sync().then(() => {
     // Table created
+    const salt = bcrypt.genSaltSync();
+    const hash = bcrypt.hashSync(DEFAULT_PASS, salt);
     return User.findOrCreate({ where: { user: 'admin' },
       defaults: {
         user: 'admin',
-        pass: crypto.createHash('sha256').update(DEFAULT_PASS, 'utf8').digest('hex'),
+        pass: hash,
         name: 'John',
         isAdmin: true
       }
