@@ -28,7 +28,7 @@
   "homepage": "https://github.com/knowlet/koa-starter#readme",
   "devDependencies": {
     "chokidar": "^2.0.3",
-    "mocha": "^8.4.0",
+    "mocha": "^10.1.0",
     "sequelize-cli": "^6.2.0",
     "standard": "^11.0.1",
     "supertest": "^3.0.0"
